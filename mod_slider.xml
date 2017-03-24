@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<extension type="module" version="1.0.0" method="upgrade" client="site">
+    <name>MODULE_SLIDER</name>
+    <author>mragulin</author>
+    <version>1.0</version>
+    <description>Слайдер</description>
+    <files>
+        <filename module="mod_slider">mod_slider.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <folder>tmpl</folder>
+        <folder>assets</folder>
+        <folder>assets/js</folder>
+        <folder>assets/slick</folder>
+    </files>
+	<languages>
+		<language tag="en-GB">language/en-GB.mod_slider.ini</language>
+		<language tag="en-GB">language/en-GB.mod_slider.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU.mod_slider.ini</language>
+		<language tag="ru-RU">language/ru-RU.mod_slider.sys.ini</language>
+	</languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="addnew" label="Слайды" type="Repeatable" default="">
+                    <fieldset hidden="true" name="list_slides" repeat="true">
+                        <field name="image"
+                               label="Изображение"
+                               type="media"
+                               directory="slider"
+                               alt="image"/>
+                        <field name="title"
+                               type="text"
+                               label="Заголовок"
+                               size="100" />
+                        <field name="subtitle"
+                               type="text"
+                               label="Подзаголовок"
+                               size="100" />
+                        <field name="href"
+                               type="text"
+                               label="Ссылка"
+                               size="100" />
+                    </fieldset>
+                </field>
+                <field name="count"
+                       type="integer"
+                       first="1"
+                       last="10"
+                       step="1"
+                       label="Количество отображаемых слайдов" />
+                <field name="slideToShow"
+                       type="integer"
+                       first="1"
+                       last="10"
+                       step="1"
+                       label="Количество слайдов при переключении" />
+                <field name="dots"
+                       type="checkbox"
+                       label="Отобразить пагинацию"
+                       description="Точки на слайдере"
+                       default="0"/>
+                <field name="arrows"
+                       type="checkbox"
+                       label="Отобразить стрелки переключения"
+                       default="1"/>
+                <field name="autoplay"
+                       type="checkbox"
+                       label="Автопереключение слайдов"
+                       default="1"/>
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL"
+                       description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+                <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                       description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field name="cache" type="list" label="COM_MODULES_FIELD_CACHING_LABEL"
+                       description="COM_MODULES_FIELD_CACHING_DESC" default="1">
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
